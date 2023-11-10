@@ -34,7 +34,7 @@ To use the system:
 
 ### Screenshots
 
-![Voltage Membership Function](<img src="images/voltage.jpg" alt="Voltage Membership Function">)
+![Voltage Membership Function](images/voltage.jpg)
 
 ![Torque Membership Function](images/torque.jpg)
 
