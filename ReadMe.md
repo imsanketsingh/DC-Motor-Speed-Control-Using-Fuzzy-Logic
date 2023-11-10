@@ -46,7 +46,7 @@ To use the system:
 
 To set up the project locally, follow these steps:
 
-1. **Clone the repository**: `git clone https://github.com/imsanketsingh/fuzzy_python_project.git`
+1. **Clone the repository**: `git clone https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic.git`
 2. **Install dependencies**: `pip install -r requirements.txt`
 
 ---
