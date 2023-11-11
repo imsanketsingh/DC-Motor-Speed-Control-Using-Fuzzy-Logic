@@ -58,7 +58,7 @@ else:
     try:
         simulator.compute()
         result = round(simulator.output['speed'], 2)
-        st.markdown(f"Calculated Speed Output: **{result}**")
+        st.markdown(f"Calculated DC Motor Speed Output: **{result}**")
         st.markdown("---")
 
 
