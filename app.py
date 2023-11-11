@@ -138,6 +138,7 @@ st.markdown(
         <p style="color: #888;"> 
             <a href="https://github.com/imsanketsingh" style="color: #888;">Github</a> | 
             <a href="https://www.linkedin.com/in/imsanketsingh/" style="color: #888;">Linkedin</a>
+            <a href="https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic/" style="color: #888;">Code</a>
         </p>
     </div>
     """,
