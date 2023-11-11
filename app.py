@@ -43,7 +43,7 @@ simulator = ctrl.ControlSystemSimulation(system)
 
 
 # Create a Streamlit app
-st.set_page_config(page_title='DC Motor Speed Predictor', page_icon= 'images/favicon.jpg')
+st.set_page_config(page_title='DC Motor Speed Predictor', page_icon= 'images/favicon.png')
 st.title('Fuzzy Logic Speed Control System')
 
 # Input values (simulating user input)
