@@ -57,26 +57,28 @@ else:
 
         plot_width, plot_height = 6, 3
 
-        # Generate the membership functions plot for voltage with Gaussian functions
+        # Generate the membership functions plot for voltage with Gaussian functions and fill_between
         voltage_membership_fig, ax = plt.subplots(figsize=(plot_width, plot_height))
         ax.plot(voltage.universe, fuzz.gaussmf(voltage.universe, 0, 3), label='Very Low')
         ax.plot(voltage.universe, fuzz.gaussmf(voltage.universe, 7, 3), label='Low')
         ax.plot(voltage.universe, fuzz.gaussmf(voltage.universe, 13, 3), label='Medium')
         ax.plot(voltage.universe, fuzz.gaussmf(voltage.universe, 18, 3), label='High')
         ax.plot(voltage.universe, fuzz.gaussmf(voltage.universe, 25, 3), label='Very High')
+        ax.fill_between(voltage.universe, fuzz.gaussmf(voltage.universe, 0, 3), voltage_input, alpha=0.2)
         ax.legend()
         ax.set_xlabel('Voltage')
         ax.set_ylabel('Membership')
         st.write("Voltage Membership Function:")
         st.pyplot(voltage_membership_fig)
 
-        # Generate the membership functions plot for torque with Gaussian functions
+        # Generate the membership functions plot for torque with Gaussian functions and fill_between
         torque_membership_fig, ax = plt.subplots(figsize=(plot_width, plot_height))
         ax.plot(torque.universe, fuzz.gaussmf(torque.universe, 0, 3), label='Very Low')
         ax.plot(torque.universe, fuzz.gaussmf(torque.universe, 7, 3), label='Low')
         ax.plot(torque.universe, fuzz.gaussmf(torque.universe, 13, 3), label='Medium')
         ax.plot(torque.universe, fuzz.gaussmf(torque.universe, 18, 3), label='High')
         ax.plot(torque.universe, fuzz.gaussmf(torque.universe, 25, 3), label='Very High')
+        ax.fill_between(torque.universe, fuzz.gaussmf(torque.universe, 0, 3), torque_input, alpha=0.2)
         ax.legend()
         ax.set_xlabel('Torque')
         ax.set_ylabel('Membership')
