@@ -8,7 +8,7 @@ matplotlib.rc('legend', fontsize=6)
 
 # Fuzzy logic setup
 voltage = ctrl.Antecedent(np.arange(0, 25, 1), 'voltage')
-torque = ctrl.Antecedent(np.arange(0, 25, 1), 'torque')
+torque = ctrl.Antecedent(np.arange(0, 15, 1), 'torque')
 speed = ctrl.Consequent(np.arange(0, 1500, 1), 'speed')
 
 # Membership functions
@@ -76,7 +76,7 @@ st.title('Fuzzy Logic Speed Control System')
 voltage_input = st.slider('Voltage Input', min_value=0.0, max_value=25.0, value=15.0)
 torque_input = st.slider('Torque Input', min_value=0.0, max_value=25.0, value=15.0)
 
-if voltage_input < 0 or voltage_input > 25 or torque_input < 0 or torque_input > 25:
+if voltage_input < 0 or voltage_input > 25 or torque_input < 0 or torque_input > 15:
     st.warning("Input values should be between 0 and 25.")
 else:
     simulator.input['voltage'] = voltage_input
