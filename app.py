@@ -8,7 +8,7 @@ matplotlib.rc('legend', fontsize=6)
 
 # Fuzzy logic setup
 voltage = ctrl.Antecedent(np.arange(0, 25, 1), 'voltage')
-torque = ctrl.Antecedent(np.arange(0, 15, 1), 'torque')
+torque = ctrl.Antecedent(np.arange(0, 5, 1), 'torque')
 speed = ctrl.Consequent(np.arange(0, 1500, 1), 'speed')
 
 # Membership functions
@@ -18,11 +18,11 @@ voltage['Medium'] = fuzz.trimf(voltage.universe, [8, 13, 18])
 voltage['High'] = fuzz.trimf(voltage.universe, [12, 17, 22])
 voltage['Very High'] = fuzz.trimf(voltage.universe, [16, 21, 25])
 
-torque['Very Low'] = fuzz.trimf(torque.universe, [18, 25, 25])
-torque['Low'] = fuzz.trimf(torque.universe, [12, 15, 20])
-torque['Medium'] = fuzz.trimf(torque.universe, [8, 13, 16])
-torque['High'] = fuzz.trimf(torque.universe, [4, 8, 12])
-torque['Very High'] = fuzz.trimf(torque.universe, [0, 5, 8])
+torque['Very Low'] = fuzz.trimf(torque.universe, [1.8, 3.5 , 5.0])
+torque['Low'] = fuzz.trimf(torque.universe, [1.2, 2.0, 4.0])
+torque['Medium'] = fuzz.trimf(torque.universe, [0.8, 1.5, 3.0])
+torque['High'] = fuzz.trimf(torque.universe, [0.4, 1.2, 2.0])
+torque['Very High'] = fuzz.trimf(torque.universe, [0, 0.4, 1.5])
 
 speed['Very Slow'] = fuzz.trimf(speed.universe, [0, 200, 400])
 speed['Slow'] = fuzz.trimf(speed.universe, [200, 500, 600])
@@ -74,10 +74,10 @@ st.title('Fuzzy Logic Speed Control System')
 
 # Input values (simulating user input)
 voltage_input = st.slider('Voltage Input', min_value=0.0, max_value=25.0, value=15.0)
-torque_input = st.slider('Torque Input', min_value=0.0, max_value=25.0, value=15.0)
+torque_input = st.slider('Torque Input', min_value=0.0, max_value=5.0, value=3.5)
 
-if voltage_input < 0 or voltage_input > 25 or torque_input < 0 or torque_input > 15:
-    st.warning("Input values should be between 0 and 25.")
+if voltage_input < 0 or voltage_input > 25 or torque_input < 0 or torque_input > 5:
+    st.warning("Input values should be in range")
 else:
     simulator.input['voltage'] = voltage_input
     simulator.input['torque'] = torque_input
@@ -110,16 +110,16 @@ else:
 
         # Generate the membership functions plot for torque
         torque_membership_fig, ax = plt.subplots(figsize=(plot_width, plot_height))
-        ax.plot(torque.universe, fuzz.trimf(torque.universe, [18, 25, 25]), label='Very Low')
-        ax.plot(torque.universe, fuzz.trimf(torque.universe, [12, 15, 20]), label='Low')
-        ax.plot(torque.universe, fuzz.trimf(torque.universe, [8, 13, 16]), label='Medium')
-        ax.plot(torque.universe, fuzz.trimf(torque.universe, [4, 8, 12]), label='High')
-        ax.plot(torque.universe, fuzz.trimf(torque.universe, [0, 5, 8]), label='Very High')
-        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [18, 25, 25]), torque_input), alpha=0.2)
-        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [12, 15, 20]), torque_input), alpha=0.2)
-        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [8, 13, 16]), torque_input), alpha=0.2)
-        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [4, 8, 12]), torque_input), alpha=0.2)
-        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [0, 5, 8]), torque_input), alpha=0.2)
+        ax.plot(torque.universe, fuzz.trimf(torque.universe, [1.8, 3.5 , 5.0]), label='Very Low')
+        ax.plot(torque.universe, fuzz.trimf(torque.universe, [1.2, 2.0, 4.0]), label='Low')
+        ax.plot(torque.universe, fuzz.trimf(torque.universe, [0.8, 1.5, 3.0]), label='Medium')
+        ax.plot(torque.universe, fuzz.trimf(torque.universe, [0.4, 1.2, 2.0]), label='High')
+        ax.plot(torque.universe, fuzz.trimf(torque.universe, [0, 0.4, 1.5]), label='Very High')
+        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [1.8, 3.5 , 5.0]), torque_input), alpha=0.2)
+        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [1.2, 2.0, 4.0]), torque_input), alpha=0.2)
+        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [0.8, 1.5, 3.0]), torque_input), alpha=0.2)
+        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [0.4, 1.2, 2.0]), torque_input), alpha=0.2)
+        ax.fill_between(torque.universe, fuzz.interp_membership(torque.universe, fuzz.trimf(torque.universe, [0, 0.4, 1.5]), torque_input), alpha=0.2)
         ax.legend()
         ax.set_xlabel('Torque')
         ax.set_ylabel('Membership')
