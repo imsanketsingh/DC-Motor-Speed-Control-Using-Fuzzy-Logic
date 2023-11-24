@@ -33,14 +33,9 @@ To use the system:
 ---
 
 ### Screenshots
+Various Membership Functions - 
 
-Voltage Membership Function![image](https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic/assets/77242965/4d099b84-fd39-4fc9-9331-a1f5104e2d2e)
-
-Torque Membership Function![image](https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic/assets/77242965/f991c1de-618c-4cc6-9ba0-cbde88303a19)
-
-Speed Membership Function![image](https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic/assets/77242965/3b690d75-53ed-4a62-83e8-5559db694e8f)
-
-
+![image](https://github.com/imsanketsingh/DC-Motor-Speed-Control-Using-Fuzzy-Logic/assets/77242965/5d4b9dc0-09fc-4803-8e55-6c64f75bc919)
 
 ---
 
