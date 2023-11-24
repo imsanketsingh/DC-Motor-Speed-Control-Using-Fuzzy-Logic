@@ -4,7 +4,7 @@ from skfuzzy import control as ctrl
 import streamlit as st
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.rc('legend', fontsize=6)
+matplotlib.rc('legend', fontsize=6) 
 
 # Fuzzy logic setup
 voltage = ctrl.Antecedent(np.arange(0, 25, 1), 'voltage')
